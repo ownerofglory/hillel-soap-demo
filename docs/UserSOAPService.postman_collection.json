@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "d0359da0-9c62-4cdb-8706-80a164040e60",
+		"name": "UserSOAPService",
+		"description": "\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://ithillel.ua/soap\">\n  <soap:Body>\n    <tns:addUser>\n        <user>\n            <firstname>John</firstname>\n            <lastname>Doe</lastname>\n            <email>john.doe@mail.com</email>\n        </user>\n    </tns:addUser>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{UserSOAPPortBaseUrl}}/hillel-soap-demo/ws/user",
+					"host": [
+						"{{UserSOAPPortBaseUrl}}"
+					],
+					"path": [
+						"hillel-soap-demo",
+						"ws",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addUser response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://ithillel.ua/soap\">\n  <soap:Body>\n    <tns:addUser>\n        <user>\n        </user>\n    </tns:addUser>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hillel-soap-demo/ws/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hillel-soap-demo",
+								"ws",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <addUserResponse>\n      <return>string</return>\n    </addUserResponse>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://ithillel.ua/soap\">\n  <soap:Body>\n    <tns:getUsers/>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{UserSOAPPortBaseUrl}}/hillel-soap-demo/ws/user",
+					"host": [
+						"{{UserSOAPPortBaseUrl}}"
+					],
+					"path": [
+						"hillel-soap-demo",
+						"ws",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getUsers response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hillel-soap-demo/ws/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hillel-soap-demo",
+								"ws",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <getUsersResponse/>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "UserSOAPPortBaseUrl",
+			"value": "http://localhost:8080",
+			"type": "any"
+		}
+	]
+}

@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "b6f42b89-efd2-49e2-8cdd-2d3faad98914",
+		"name": "HelloSoapService",
+		"description": "\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://ithillel.ua/soap\">\n  <soap:Body>\n    <tns:hello>\n      <arg0>Vlad</arg0>\n    </tns:hello>\n  </soap:Body>\n</soap:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HelloSoapPortBaseUrl}}/hillel-soap-demo/ws/hello",
+					"host": [
+						"{{HelloSoapPortBaseUrl}}"
+					],
+					"path": [
+						"hillel-soap-demo",
+						"ws",
+						"hello"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "hello response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <hello>\n      <arg0>string</arg0>\n    </hello>\n  </soap:Body>\n</soap:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hillel-soap-demo/ws/hello",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hillel-soap-demo",
+								"ws",
+								"hello"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <helloResponse>\n      <return>string</return>\n    </helloResponse>\n  </soap:Body>\n</soap:Envelope>\n"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "HelloSoapPortBaseUrl",
+			"value": "http://localhost:8080",
+			"type": "any"
+		}
+	]
+}

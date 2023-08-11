@@ -1,0 +1,32 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ithillel.ua/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ithillel.ua/soap" name="HelloSoapService">
+    <types/>
+    <message name="hello">
+        <part name="arg0" type="xsd:string"/>
+    </message>
+    <message name="helloResponse">
+        <part name="return" type="xsd:string"/>
+    </message>
+    <portType name="HelloSoap">
+        <operation name="hello">
+            <input wsam:Action="http://ithillel.ua/soap/HelloSoap/helloRequest" message="tns:hello"/>
+            <output wsam:Action="http://ithillel.ua/soap/HelloSoap/helloResponse" message="tns:helloResponse"/>
+        </operation>
+    </portType>
+    <binding name="HelloSoapPortBinding" type="tns:HelloSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+        <operation name="hello">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://ithillel.ua/soap"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://ithillel.ua/soap"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="HelloSoapService">
+        <port name="HelloSoapPort" binding="tns:HelloSoapPortBinding">
+            <soap:address location="http://localhost:8080/hillel-soap-demo/ws/hello"/>
+        </port>
+    </service>
+</definitions>

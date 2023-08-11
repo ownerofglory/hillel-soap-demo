@@ -5,5 +5,10 @@
             implementation="ua.ithillel.soap.ws.HelloSoap"
             url-pattern="/ws/hello"/>
 
+    <endpoint
+            name="UserSOAPService"
+            implementation="ua.ithillel.soap.ws.UserSOAP"
+            url-pattern="/ws/user"/>
+
 
 </endpoints>
